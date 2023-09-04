@@ -1,5 +1,5 @@
 import { Router } from "express";
-import read from "../controllers/auth/read.js";
+import read from "../controllers/chapters/read.js";
 const router = Router();
 
 router.get('/', read)
