@@ -3,7 +3,7 @@ import Chapters from '../../models/Chapter.js'
 export default async (req, res, next) => {
     let pagination = {page: 1, limit: 6}
     if(req.query.page) pagination.page = req.query.page
-    let {manga_id} = req.query
+    let { manga_id } = req.query
     let skip = ( pagination.page > 0 ) ? (pagination.page-1)*pagination.limit : 0
     let limit = pagination.limit > 0 ? pagination.limit : 0
     try {
