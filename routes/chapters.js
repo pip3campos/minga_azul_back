@@ -1,7 +1,7 @@
 import { Router } from "express";
-import read from "../controllers/chapters/read.js";
+import readChapter from "../controllers/chapters/readChapter.js";
 const router = Router();
 
-router.get('/', read)
+router.get('/', readChapter)
 
 export default router;
