@@ -3,7 +3,7 @@ import Mangas from '../../models/Manga.js'
 export default async(req,res) => {
     try {
         let queries={}
-        let pagination = {page:1 , limit:0}
+        let pagination = {page:1 , limit:4}
         let next=false
         let prev=false
         if(req.query.title) queries.title = new RegExp((req.query.title).trim(),'i')
