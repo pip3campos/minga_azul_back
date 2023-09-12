@@ -1,5 +1,4 @@
 import Chapter from "../../models/Chapter.js";
-
 let get_one = async (req, res, next) => {
     try {
         let all = await Chapter.findById(req.params.id).select("-createdAt -updatedAt -__v -cover_photo")

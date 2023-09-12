@@ -14,4 +14,4 @@ router.use('/chapters', chaptersRouter)
 router.use('/categories', categoriesRouter)
 router.use('/users', userRouter)
 
-export default router;
+export default router
