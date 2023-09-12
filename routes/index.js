@@ -1,9 +1,19 @@
-import express from 'express';
-const router = express.Router();
+import { Router } from 'express';
+import userRouter from './users.js'
+import authorsRouter from './authors.js'
+import mangasRouter from './mangas.js'
+import chaptersRouter from './chapters.js'
+import categoriesRouter from './categories.js'
+import chapterByIDRouter from './chapterByID.js'
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+const router = Router();
 
-export default router;
+router.use('/auth', userRouter)
+router.use('/authors', authorsRouter)
+router.use('/mangas', mangasRouter)
+router.use('/chapters', chaptersRouter)
+router.use('/categories', categoriesRouter)
+/* router.use('/chapter/:id', chapterByIDRouter) */
+router.use('/users', userRouter)
+
+export default router
