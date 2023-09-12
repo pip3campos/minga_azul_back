@@ -10,10 +10,10 @@ const router = Router();
 
 router.use('/auth', userRouter)
 router.use('/authors', authorsRouter)
-router.use('/api/mangas', mangasRouter)
-router.use('/api/chapters', chaptersRouter)
-router.use('/api/categories', categoriesRouter)
-router.use('/api/chapters', chapterByIDRouter)
+router.use('/mangas', mangasRouter)
+router.use('/chapters', chaptersRouter)
+router.use('/categories', categoriesRouter)
+/* router.use('/chapter/:id', chapterByIDRouter) */
 router.use('/users', userRouter)
 
 export default router

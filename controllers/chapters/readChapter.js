@@ -8,7 +8,7 @@ export default async (req, res, next) => {
     let limit = pagination.limit > 0 ? pagination.limit : 0
     try {
         let totalChapters = await Chapters.countDocuments({ manga_id })
-        let chapters = await Chapters.find({ manga_id }, '-_id manga_id title cover_photo pages order')
+        let chapters = await Chapters.find({ manga_id }, 'manga_id title cover_photo pages order')
             .sort({ order: 1 })
             .skip(skip)
             .limit(limit)
