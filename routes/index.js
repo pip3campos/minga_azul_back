@@ -14,6 +14,5 @@ router.use('/mangas', mangasRouter)
 router.use('/chapters', chaptersRouter)
 router.use('/categories', categoriesRouter)
 router.use('/api/chapters', chapterByIDRouter)
-router.use('/users', userRouter)
 
 export default router;

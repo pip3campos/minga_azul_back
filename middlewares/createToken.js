@@ -1,10 +1,10 @@
-import sign from 'jsonwebtoken'
+import jwt from 'jsonwebtoken'
 
 export default (req,res,next)=>{
-const token= sign (
+const token= jwt.sign (
     {email: req.body.email || req.user.email},
     process.env.SECRET,
-    {expiresIn: 86.400}
+    {expiresIn: 86400}
 )
 req.token = token
 return next()

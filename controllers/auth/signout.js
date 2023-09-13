@@ -6,8 +6,7 @@ export default async function create(req,res,next) {
       {
         email: req.body.email,
         online: false,
-      })
-      console.log(findUser);
+      },{new:true})    
 
     return res.status(200).json({
       message: "User SignOut"
