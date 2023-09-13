@@ -32,10 +32,11 @@ export default async(req,res) => {
             respuesta={success: true,
                 message: "authors",
                 response: {
-                    new: primerasCuatro,
-                    old: ultimasCuatro
+                    new: ultimasCuatro,
+                    old: primerasCuatro
                 } }
         }
+        console.log(respuesta)
         res.json({
             respuesta
         })

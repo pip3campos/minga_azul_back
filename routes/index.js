@@ -15,4 +15,4 @@ router.use('/chapters', chaptersRouter)
 router.use('/categories', categoriesRouter)
 router.use('/api/chapters', chapterByIDRouter)
 
-export default router;
+export default router
