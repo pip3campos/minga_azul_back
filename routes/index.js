@@ -13,7 +13,6 @@ router.use('/authors', authorsRouter)
 router.use('/mangas', mangasRouter)
 router.use('/chapters', chaptersRouter)
 router.use('/categories', categoriesRouter)
-/* router.use('/chapter/:id', chapterByIDRouter) */
-router.use('/users', userRouter)
+router.use('/api/chapters', chapterByIDRouter)
 
 export default router
