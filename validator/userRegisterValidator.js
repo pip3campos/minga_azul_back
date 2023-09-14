@@ -1,9 +1,13 @@
 import joi from 'joi'
 
-const userValidator = joi.object({
+const userRegisterValidator = joi.object({
     email: joi.string().email({minDomainSegments: 2}).required().messages({
         'any.required': "Email Required",
         'string.email': "Email must contain @xxxx.com"
+    }),
+    photo: joi.string().uri().required().messages({
+        'any.required': "Photo required",
+        'string.uri': "Must be an url"
     }),
     password: joi.string().min(8).pattern(new RegExp('^[a-zA-Z0-9]')).required().messages({
         'any.required': "Password Required",
@@ -12,4 +16,4 @@ const userValidator = joi.object({
     }),
 })
 
-export default userValidator
+export default userRegisterValidator
