@@ -4,11 +4,10 @@ export default async function signIn(req,res,next) {
   try {
     const findUser = await User.findOneAndUpdate(
       {
-        email: req.body.email,
-        online: true,
-        new: true,
-      })
-      findUser.select("-password")
+        email: req.body.email
+      },{
+        online: true
+      },{new: true}).select("-password")
       console.log(findUser);
 
     return res.status(200).json({

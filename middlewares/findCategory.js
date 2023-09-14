@@ -3,6 +3,7 @@ import Category from '../models/Category.js'
 const findCategory = async (req, res, next) => {
     try {
         const category = await Category.findOne({ name: req.body.category_id })
+        console.log(req.body.category_id)
         if (category) {
             req.body.category_id = category._id
             return next()

@@ -1,9 +1,9 @@
 import User from '../models/User.js'
-import compareSync from 'bcryptjs'
+import bcryptjs from 'bcryptjs'
 
 export default async function(req,res,next) {
-let userFind= User.find({email: req.body.email})
-  if (compareSync(userFind.password,req.body.password)){
+let userFind= await User.findOne({email: req.body.email})
+  if (bcryptjs.compareSync(req.body.password,userFind.password)){
     return next()
   }
   return  res.status(400).json({
