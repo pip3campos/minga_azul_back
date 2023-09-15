@@ -1,6 +1,6 @@
 import User from '../../models/User.js'
 
-export default async function signIn(req,res,next) {
+export default async function signIn(req,res) {
   try {
     const findUser = await User.findOneAndUpdate(
       {
@@ -13,10 +13,12 @@ export default async function signIn(req,res,next) {
     return res.status(200).json({
       response: { 
         token: req.token,
-        findUser}
+        findUser
+      }
     })
     
   } catch (error) {
+    console.log(error);
     res.json({
       success: false,
       message: "error"

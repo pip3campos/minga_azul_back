@@ -9,10 +9,5 @@ export default async function create(req,res,next) {
         message: "not finded" 
       })}
   return next()
-  } catch (error) {
-    res.json({
-      success: false,
-      message: "error"
-    })
-  }
+
 }
