@@ -8,7 +8,6 @@ const userValidator = Joi.object({
     password: Joi.string().min(8).required().messages({
         'any.required': "Password Required",
         'string.min': "Password need min 8 characters",
-        'string.pattern': "Password must contain a alpha and numeric characters"
     }),
 })
 
