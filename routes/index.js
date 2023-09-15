@@ -4,7 +4,6 @@ import authorsRouter from './authors.js'
 import mangasRouter from './mangas.js'
 import chaptersRouter from './chapters.js'
 import categoriesRouter from './categories.js'
-import chapterByIDRouter from './chapterByID.js'
 
 const router = Router();
 
@@ -13,6 +12,5 @@ router.use('/authors', authorsRouter)
 router.use('/mangas', mangasRouter)
 router.use('/chapters', chaptersRouter)
 router.use('/categories', categoriesRouter)
-router.use('/api/chapters', chapterByIDRouter)
 
 export default router
