@@ -1,8 +1,11 @@
 import Comments from "../../models/Comments.js"
 
-const createOne = async (req, res, next) => {
+const createOne = async (req, res) => {
     try {
-        const newComment = new Comments(req.body)
+        const newComment = new Comments({
+            chapter_id:req.body.chapter_id,
+            user_id:req.user._id,
+            text: req.body.text})
         await newComment.save()
         return res.status(201).json({
             success: true,
