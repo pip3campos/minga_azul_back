@@ -2,9 +2,9 @@ import Author from '../models/Author.js'
 
 const findAuthor = async (req, res, next) => {
     try {
-        const findedAuthor = await Author.findById(req.body.id)
+        const findedAuthor = await Author.findOne({ user_id: req.user._id})
         if (findedAuthor) {
-            req.body.author_id=findedAuthor
+            req.author=findedAuthor
             return next()
         }
         return res.status(404).json({
