@@ -1,5 +1,4 @@
 import { Router } from "express";
-// import read from "../controllers/chapters/read.js";
 import readOne from "../controllers/chapters/read_one.js";
 import create from "../controllers/chapters/create.js";
 import readChapter from "../controllers/chapters/readChapter.js";
@@ -17,13 +16,11 @@ import destroyChapter from "../controllers/chapters/destroy.js";
 
 const router = Router();
 
-// router.get('/', read)
 router.get('/', readChapter)
 router.get('/me', passport.authenticate('jwt', { session: false }), finds_id, isPropertyOf, get_me);
 router.get('/:id', readOne)
-router.post('/',passport.authenticate('jwt', {session:false}), /*isPropertyOf,*/ addCoverPhoto, validator(chapterValidator), create)
-// RECORDAR PROBAR POST CON PROPERTY OF
+router.post('/',passport.authenticate('jwt', {session:false}), addCoverPhoto, validator(chapterValidator), create)
 router.put('/:id', passport.authenticate('jwt', { session: false }), finds_id, is_active, isPropertyOf, validator(chapterEditValidator), updateChapter);
-router.delete('/:id', passport.authenticate('jwt', { session: false }), finds_id,is_active ,isPropertyOf, destroyChapter);
+router.delete('/:id', passport.authenticate('jwt', { session: false }), finds_id, is_active ,isPropertyOf, destroyChapter);
 
 export default router;
