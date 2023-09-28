@@ -17,9 +17,9 @@ export const createOrder1 = async (req,res) => {
             }
         ],
         back_urls: {
-            success: 'http://localhost:4000/donate/success',
-            failure: 'http://localhost:4000/donate/failure',
-            pending: 'http://localhost:4000/donate/pending'
+            success: 'http://localhost:5173/donate',
+            failure: 'http://localhost:5173/donate',
+            pending: 'http://localhost:5173/donate'
         },
         notification_url: `${process.env.NGROK_LINK}/donate/webhook`
     })
@@ -46,9 +46,9 @@ export const createOrder2 = async (req,res) => {
             }
         ],
         back_urls: {
-            success: 'http://localhost:4000/donate/success',
-            failure: 'http://localhost:4000/donate/failure',
-            pending: 'http://localhost:4000/donate/pending'
+            success: 'http://localhost:5173/donate',
+            failure: 'http://localhost:5173/donate',
+            pending: 'http://localhost:5173/donate'
         },
         notification_url: `${process.env.NGROK_LINK}/donate/webhook`
     })
@@ -75,9 +75,9 @@ export const createOrder3 = async (req,res) => {
             }
         ],
         back_urls: {
-            success: 'http://localhost:4000/donate/success',
-            failure: 'http://localhost:4000/donate/failure',
-            pending: 'http://localhost:4000/donate/pending'
+            success: 'http://localhost:5173/donate',
+            failure: 'http://localhost:5173/donate',
+            pending: 'http://localhost:5173/donate'
         },
         notification_url: `${process.env.NGROK_LINK}/donate/webhook`
     })
