@@ -8,9 +8,7 @@ import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import ErrorHandler from './middlewares/error_handler.js';
 import Not_Found from './middlewares/not_found.js';
-
 import indexRouter from './routes/index.js';
-
 import { __dirname } from './utils.js';
 
 const app = express();
