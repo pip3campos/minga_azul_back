@@ -16,7 +16,9 @@ export default async function uploadFile(req,res,next) {
     const storage=getStorage(app)
     const storageRef=ref(storage,`userImage/${v4()}`)
     try {
-        if (req.files==undefined) {
+        if (req.body.photo) {
+            return next()
+        }else if (req.files==undefined) {
             return res.json({
                 success:false,
                 message:'Se necesita el envio de una imagen para el registro'
@@ -26,7 +28,6 @@ export default async function uploadFile(req,res,next) {
             contentType:req.files.file.mimetype,
             size: req.files.file.size
         }
-        console.log(req.files);
         const archivo=req.files.file.data
         await uploadBytes(storageRef,archivo,metadata)
         const url= await getDownloadURL(storageRef)
