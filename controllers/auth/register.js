@@ -14,6 +14,6 @@ export default async function register(req,res,next) {
     })
     
   } catch (error) {
-    next(err);
+    return error;
   }
 }

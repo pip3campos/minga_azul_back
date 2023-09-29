@@ -9,12 +9,12 @@ import validator from "../middlewares/validator.js"
 import jwt from 'passport-jwt'
 import passport from "../middlewares/passport.js"
 import hasPermission from "../middlewares/hasPermission.js"
-
+import firebaseConvertManga from '../middlewares/firebaseConverManga.js'
 const router = Router()
 
 router.get('/', read )
 router.get('/:id', readOne)
 router.get('/news/:id', read_news)
-router.post('/', passport.authenticate('jwt', {session: false}), findCategory, hasPermission, validator(mangaValidator), createOne)
+router.post('/', passport.authenticate('jwt', {session: false}), findCategory, hasPermission,firebaseConvertManga, validator(mangaValidator), createOne)
 
 export default router;
