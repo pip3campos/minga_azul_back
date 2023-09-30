@@ -9,7 +9,7 @@ import validator from "../middlewares/validator.js"
 import jwt from 'passport-jwt'
 import passport from "../middlewares/passport.js"
 import hasPermission from "../middlewares/hasPermission.js"
-import firebaseConvertManga from '../middlewares/firebaseConverManga.js'
+import firebaseConvertManga from '../middlewares/firebaseConvertManga.js'
 const router = Router()
 
 router.get('/', read )

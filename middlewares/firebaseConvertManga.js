@@ -16,7 +16,9 @@ export default async function uploadFile(req,res,next) {
     const storage=getStorage(app)
     const storageRef=ref(storage,`mangaImage/${v4()}`)
     try {
-        if (req.files==undefined) {
+        if (req.body.cover_photo) {
+            return next()
+        }else if (req.files==undefined) {
             return res.json({
                 success:false,
                 message:'Se necesita el envio de una imagen para la creacion del manga'
