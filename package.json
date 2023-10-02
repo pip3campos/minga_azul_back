@@ -9,7 +9,8 @@
     "users": "node ./models/data/users.js",
     "authors": "node ./models/data/authors.js",
     "categories": "node ./models/data/categories.js",
-    "data": "node ./models/data/data.js"
+    "data": "node ./models/data/data.js",
+    "test": "mocha ./test/test.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -27,7 +28,8 @@
     "morgan": "~1.9.1",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
-    "socket.io": "^4.7.2"
+    "socket.io": "^4.7.2",
+    "socket.io-client": "^4.7.2"
   },
   "devDependencies": {
     "chai": "^4.3.10",
