@@ -13,7 +13,8 @@ let schema = new Schema({
     description: { type:String, required:true },
     category_id: {
         type: Types.ObjectId,
-        required: true
+        required: true,
+        ref: 'categories'
     }
 },{
     timestamps: true

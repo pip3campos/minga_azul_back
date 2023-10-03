@@ -4,7 +4,9 @@ import authorsRouter from './authors.js'
 import mangasRouter from './mangas.js'
 import chaptersRouter from './chapters.js'
 import categoriesRouter from './categories.js'
-import commentsRouter from './comments.js'
+import paymentRoutes from './payment.routes.js'
+
+
 const router = Router();
 
 router.use('/auth', userRouter)
@@ -12,6 +14,6 @@ router.use('/authors', authorsRouter)
 router.use('/mangas', mangasRouter)
 router.use('/chapters', chaptersRouter)
 router.use('/categories', categoriesRouter)
-router.use('/comments',commentsRouter)
+router.use('/donate', paymentRoutes)
 
 export default router

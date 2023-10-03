@@ -1,19 +1,71 @@
-import User from '../../models/User.js'
+import User from '../../models/User.js';
+import crypto from 'crypto';
+import nodemailer from 'nodemailer';
 
-export default async function register(req,res,next) {
+// Configuracion de nodemailer
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD
+  },
+});
+
+async function create(req, res, next) {
+  
+  // Extrae los datos de req.body
+  let {
+    email,
+    password,
+    photo,
+    role
+  } = req.body
+
+
   try {
-    const newUser = new User(req.body)
-    
-     await newUser.save(newUser)
-     
-      
-    return res.status(200).json({
-        success:true,
-        response: newUser,
-        message:"User created"
+    // Crea el usuario en la base de datos
+    const newUser = await User.create({
+      email,
+      password,
+      photo,
+      role,
+      verify_code: crypto.randomBytes(10).toString('hex')
     })
-    
+
+    // Construye la URL de verificación de correo
+    const verificationLink = `http://localhost:4000/auth/verify/${newUser.verify_code}`;
+    console.log("register:",verificationLink)
+
+    // Envía el correo de verificación
+    try {
+      await transporter.sendMail({
+        from: '"Verificación de correo" <juanaysencorral@gmail.com>',
+        to: newUser.email,
+        subject: "Verifica tu correo electrónico",
+        html: `<p>Por favor, haz clic en el siguiente enlace para verificar tu correo electrónico:</p>
+             <a href="${verificationLink}">${verificationLink}</a>`,
+      });
+    } catch (error) {
+      console.error("Error al enviar el correo de verificación:", error);
+    }
+
+    res.json({
+      response: newUser,
+      message: 'User created successfully'
+    });
   } catch (error) {
-    return error;
+    console.log(error)
   }
 }
+
+
+
+export default create;
+
+
+
+
+
+
+
+
