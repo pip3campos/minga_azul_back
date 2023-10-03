@@ -9,6 +9,8 @@ import logger from 'debug'
 const debug = logger('minga-azul-back:server');
 import http from 'http';
 
+import { Server } from 'socket.io';
+import socketController from '../controllers/socket/socket.js'
 /**
  * Get port from environment and store in Express.
  */
@@ -89,3 +91,11 @@ function onListening() {
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
 }
+
+/**
+ * Implementing Socket.io
+ */
+
+const io = new Server(server, { cors: { origin: '*' } })
+
+socketController(io)
