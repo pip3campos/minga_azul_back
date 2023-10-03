@@ -8,8 +8,8 @@ import nodemailer from 'nodemailer';
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.email,
-    pass: process.env.id_client
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD
   },
 });
 
@@ -35,12 +35,13 @@ async function create(req, res, next) {
     })
 
     // Construye la URL de verificación de correo
-    const verificationLink = `http://localhost:5173/auth/verify?code=${newUser.verify_code}`;
+    const verificationLink = `http://localhost:4000/auth/verify/${newUser.verify_code}`;
+    console.log("register:",verificationLink)
 
     // Envía el correo de verificación
     try {
       await transporter.sendMail({
-        from: '"Verificación de correo" <mingamangasss@gmail.com>',
+        from: '"Verificación de correo" <juanaysencorral@gmail.com>',
         to: newUser.email,
         subject: "Verifica tu correo electrónico",
         html: `<p>Por favor, haz clic en el siguiente enlace para verificar tu correo electrónico:</p>
@@ -58,8 +59,10 @@ async function create(req, res, next) {
     console.log(error)
   }
 }
-export default create;
 
+
+
+export default create;
 
 
 
