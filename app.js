@@ -10,10 +10,7 @@ import ErrorHandler from './middlewares/error_handler.js';
 import Not_Found from './middlewares/not_found.js';
 import passportLocalMongoose from 'passport-local-mongoose';
 import mongoose from 'mongoose';
-//import findOrCreatePlugin from 'mongoose-findorcreate';
-
 import indexRouter from './routes/index.js';
-
 import { __dirname } from './utils.js';
 
 const app = express();

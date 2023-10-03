@@ -14,7 +14,7 @@ export default async(req,res) => {
                 respuesta = {success: true,
                 message: "authors",
                 response: {
-                    logo: "C:\Users\Usuario\Desktop\frontsprint\Minga-fron-Galan\public\images\logo.png"
+                    mangas: allMangas
                 } }
                 
         } else if (mangasOrdenadas.length >= 4 && mangasOrdenadas.length < 8){
