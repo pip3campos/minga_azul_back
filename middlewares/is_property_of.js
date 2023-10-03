@@ -1,5 +1,6 @@
 import Manga from '../models/Manga.js';
 
+
 export default async function is_property_of(req, res, next) {
   try {
     let mangaFind = await Manga.findOne({ _id: req.query.manga_id });
@@ -9,6 +10,7 @@ export default async function is_property_of(req, res, next) {
         success: false,
         message: "Manga not found with the given ID"
       });
+
     }
 
     if (req.author._id.toString() === mangaFind.author_id.toString()) {
@@ -20,7 +22,6 @@ export default async function is_property_of(req, res, next) {
       message: "You are not the owner of this manga"
     });
   } catch (error) {
-    console.log(error);
     return res.status(500).json({
       success: false,
       message: "Internal server error"
