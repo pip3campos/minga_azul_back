@@ -1,6 +1,4 @@
-
 import User from '../../models/User.js';
-
 import crypto from 'crypto';
 import nodemailer from 'nodemailer';
 
@@ -71,39 +69,3 @@ export default create;
 
 
 
-
-
-
-/* import User from '../../models/User.js'
-import  Sendemail from '../../config/mail.js'
-export default async function register(req,res,next) {
-  const GetTemplate = (verify_code ) =>{
-    return `
-   <div clasName:"flex flex-col justify-center items-center">
-   <h2> hola nuevo usuario </h2>
-   <p>debes confirmar tu cuenta, click en el siguiente enlase </p>
-   <Link to={"/localhost:4000/api/auth/verify/:${verify_code}"}/>
-   </div>
-   
-   `;
- }
-  try {
-    const newUser = new User(req.body)
-     
-
-
-     
-   const Template = GetTemplate(newUser.verify_code)
-   Sendemail(newUser.email,"esto es un mail de confirmacion", Template)
-   await newUser.save(newUser)
-      
-    return res.status(200).json({
-        success:true,
-        response: newUser,
-        message:"User created"
-    })
-    
-  } catch (error) {
-    next(error);
-  } 
-}*/

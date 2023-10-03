@@ -7,7 +7,7 @@ export default async function hasPermission(req,res,next) {
     console.log(req.user)
     if (!authorFind){
       return res.json({
-        sucess: false,
+        success: false,
         message: "Author not finded" 
       })}
     req.author = authorFind

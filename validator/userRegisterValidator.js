@@ -7,7 +7,6 @@ const userRegisterValidator = joi.object({
     }),
     photo: joi.string().uri().required().messages({
         'any.required': "Photo required",
-        'string.uri': "Must be an url"
     }),
     password: joi.string().min(8).pattern(new RegExp('^[a-zA-Z0-9]')).required().messages({
         'any.required': "Password Required",

@@ -12,6 +12,7 @@ import passportLocalMongoose from 'passport-local-mongoose';
 import mongoose from 'mongoose';
 import indexRouter from './routes/index.js';
 import { __dirname } from './utils.js';
+import fileUpload from 'express-fileupload'
 
 const app = express();
 
@@ -19,6 +20,7 @@ const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
+app.use(fileUpload())
 app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());

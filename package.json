@@ -19,10 +19,12 @@
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "dotenv": "^16.3.1",
-    "ejs": "^3.1.9",
-    "express-session": "^1.17.3",
-    "googleapis": "^126.0.1",
     "express": "^4.18.2",
+    "express-fileupload": "^1.4.1",
+    "express-session": "^1.17.3",
+    "firebase": "^10.4.0",
+    "firebase-tools": "^12.5.4",
+    "googleapis": "^126.0.1",
     "http-errors": "~1.6.3",
     "jade": "^0.29.0",
     "joi": "^17.10.1",
@@ -33,21 +35,20 @@
     "morgan": "~1.9.1",
     "nodemailer": "^6.9.5",
     "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1"
+  },
+  "devDependencies": {
+    "mocha": "^10.2.0",
+    "nodemon": "^3.0.1",
     "passport-google-oauth": "^2.0.0",
     "passport-google-oauth20": "^2.0.0",
     "passport-jwt": "^4.0.1",
     "passport-local-mongoose": "^8.0.0",
-    "react-google-login": "^5.2.2",
-    "strapi-provider-email-nodemailer": "^3.6.11"
     "pug": "^3.0.2",
-    "uuid": "^9.0.1"
+    "react-google-login": "^5.2.2",
     "socket.io": "^4.7.2",
-    "socket.io-client": "^4.7.2"
-  },
-  "devDependencies": {
-    "chai": "^4.3.10",
-    "mocha": "^10.2.0",
-    "nodemon": "^3.0.1",
+    "socket.io-client": "^4.7.2",
+    "strapi-provider-email-nodemailer": "^3.6.11",
     "supertest": "^6.3.3"
   }
 }

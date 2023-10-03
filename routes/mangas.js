@@ -9,6 +9,7 @@ import validator from "../middlewares/validator.js"
 import jwt from 'passport-jwt'
 import passport from "../middlewares/passport.js"
 import hasPermission from "../middlewares/hasPermission.js"
+import firebaseConvertManga from '../middlewares/firebaseConvertManga.js'
 import finds_id from '../middlewares/finds_id.js'
 import get_me from "../controllers/mangas/get_me.js"
 import mangaUpdateValidator from "../validators/mangaUpdateValidator.js"
@@ -24,7 +25,8 @@ router.get('/me', passport.authenticate('jwt', {session: false}), finds_id, get_
 router.get('/:id', readOne)
 router.delete('/:id', passport.authenticate('jwt', {session: false}), finds_id, is_active, is_property_of, destroy)
 router.get('/news/:id', read_news)
+router.post('/', passport.authenticate('jwt', {session: false}), findCategory, hasPermission,firebaseConvertManga, validator(mangaValidator), createOne)
 router.put('/:id', passport.authenticate('jwt', {session: false}), finds_id, findCategory, is_active, is_property_of, validator(mangaUpdateValidator), update)
-router.post('/', passport.authenticate('jwt', {session: false}), findCategory, hasPermission, validator(mangaValidator), createOne)
+
 
 export default router;
