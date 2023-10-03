@@ -6,6 +6,7 @@ import chaptersRouter from './chapters.js'
 import categoriesRouter from './categories.js'
 import paymentRoutes from './payment.routes.js'
 
+
 const router = Router();
 
 router.use('/auth', userRouter)
